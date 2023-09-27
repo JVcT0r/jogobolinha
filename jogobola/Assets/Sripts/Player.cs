@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
 
 {
 
-    public int _speed = 10;
+    public int velocidade = 10;
     private Rigidbody rb;
 
 
@@ -24,7 +24,8 @@ public class Player : MonoBehaviour
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
 
-
+	Vector3 direcao = new Vector3(h, 0, v);
+    rb.AddForce(direcao * velocidade * Time.deltaTime, ForceMode.Impulse);
 
     }
 }
