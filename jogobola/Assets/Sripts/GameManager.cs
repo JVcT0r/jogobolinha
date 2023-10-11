@@ -34,7 +34,8 @@ public class GameManager : MonoBehaviour
             msgVitoria.text = "Parabéns";
             source.Stop();
             source.PlayOneShot(clipVitoria);
-            SceneManager.LoadScene(+1);
+            Invoke("ProxFase", 5);
+     
         }
     }
 
@@ -42,5 +43,10 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    void ProxFase()
+    {
+        SceneManager.LoadScene(+1);
     }
 }
