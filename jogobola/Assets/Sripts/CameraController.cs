@@ -13,6 +13,7 @@ public class CameraController : MonoBehaviour
     {
         alvo = GameObject.FindWithTag("Player").transform;
         offset = alvo.position - transform.position;
+        Cursor.visible = false;
     }
 
     // Update is called once per frame
