@@ -12,7 +12,8 @@ public class Player : MonoBehaviour
     public int velocidade = 8;
     private Rigidbody rb;
     private AudioSource source;
-    public bool noChao; 
+    public bool noChao;
+    public Transform cameraPivot;
 
 
     // Start is called before the first frame update
@@ -37,9 +38,9 @@ public class Player : MonoBehaviour
     {
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
-        
 
-	    Vector3 direcao = new Vector3(h, 0, v);
+
+        Vector3 direcao = cameraPivot.forward * v + cameraPivot.right * h;
         rb.AddForce(direcao * velocidade * Time.deltaTime, ForceMode.Impulse);
         
         if(Input.GetKeyDown(KeyCode.Space) && noChao)
@@ -50,12 +51,7 @@ public class Player : MonoBehaviour
             noChao = false;
         }
     
-
-
-
-
-
-
+        
         if(transform.position.y <= -10)
         {
             //Jogador caiu
